@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart'; // importa o pacote de design do Flutter
 
-void main() { // inicia a função principal do programa
-  runApp(const MyApp()); // roda a aplicação Flutter
+void main() {
+  runApp(const MyApp()); // inicia a aplicação Flutter
 }
 
-class MyApp extends StatelessWidget { // define o widget raiz do app
-  const MyApp({super.key}); // widget único
+class MyApp extends StatelessWidget { // Widget raiz do app
+  const MyApp({super.key});
 
-  @override // sobrescreve o método que já existe na classe pai
-  Widget build(BuildContext context) { // método que constrói a interface
+  @override
+  Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false, // remove a faixa de debug
       home: TelaInicio(), // define a tela inicial
@@ -16,13 +16,15 @@ class MyApp extends StatelessWidget { // define o widget raiz do app
   }
 }
 
-class TelaInicio extends StatelessWidget { //tela de entrada
+class TelaInicio extends StatelessWidget { // tela de entrada
   const TelaInicio({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      
+    return Scaffold(
+      body: const ColoredBox(
+        color: Colors.white, // fundo branco
+      ),
     );
   }
 }
