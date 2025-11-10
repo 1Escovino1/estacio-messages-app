@@ -1,37 +1,66 @@
-import 'package:flutter/material.dart'; // importa o pacote de design do Flutter
+import 'package:flutter/material.dart';
 
 void main() {
-  // função principal que inicia o app
-  runApp(const MyApp()); // roda a aplicação Flutter passando o widget raiz
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget { // Widget raiz do app
-  const MyApp({super.key}); // construtor do widget
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // método que constrói a interface
     return MaterialApp(
-      // MaterialApp é o widget que contém toda a estrutura do app
-      debugShowCheckedModeBanner: false, // remove a faixa de debug
-      home: const TelaInicio(), // define a tela inicial do app
-    );
-  }
-}
-
-class TelaInicio extends StatelessWidget { // tela de entrada
-  const TelaInicio({super.key}); // construtor do widget
-
-  @override
-  Widget build(BuildContext context) {
-    // método que constrói a interface da tela
-    return Scaffold(
-      // Scaffold fornece a estrutura básica do Material Design (app bar, body, etc)
-      body: Container(
-        // Container é usado para preencher a tela e definir cor
-        color: Colors.white, // define o fundo da tela como branco
-        width: double.infinity, // largura máxima
-        height: double.infinity, // altura máxima
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.blue,
+                child: const Center(
+                  child: Text(
+                    'opcoes',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.green,
+                child: const Center(
+                  child: Text(
+                    'contatos',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.red,
+                child: const Center(
+                  child: Text(
+                    'Conversa',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
