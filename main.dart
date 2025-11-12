@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';   // CHAMA FLUTTER
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp());      //INICIA A PAGINA FLUTTER
 }
 
 class MyApp extends StatelessWidget {
@@ -12,9 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        // 🔹 Barra superior (AppBar moderna)
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 248, 147, 147),
+          backgroundColor: const Color.fromARGB(255, 248, 147, 147),  // A BARRA SUPERIOR
           title: const Text("WHATIZAP"),
           centerTitle: true,
           actions: const [
@@ -25,17 +24,16 @@ class MyApp extends StatelessWidget {
           ],
         ),
 
-        // 🔹 Corpo dividido em 3 colunas
-        body: Row(
+        body: Row(    // O CORPO PRINCIPAL DA PAGINA
           children: [
-            // 🔸 Coluna vermelha (menu lateral)
+            // MENU LATERAL
             SizedBox(
               width: 50,
               height: double.infinity,
               child: Container(color: Colors.red),
             ),
 
-            // 🔸 Coluna verde — lista de contatos + barra de busca + botões
+            // COLUNA DOS CONTATOS PESQUISAS E BOTOES
             SizedBox(
               width: 250,
               height: double.infinity,
@@ -43,7 +41,7 @@ class MyApp extends StatelessWidget {
                 color: Colors.green[700],
                 child: Column(
                   children: [
-                    // 🔹 Barra de pesquisa
+                    // Barra de pesquisa
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextField(
@@ -64,63 +62,88 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
 
-                    // 🔹 Linha de botões arredondados (tipo WhatsApp)
+                    // Linha de botões arredondados
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Distribui os botões de forma igual
+                      mainAxisSize: MainAxisSize.min,  // O Row ocupará apenas o espaço necessário
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.green,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 8),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
+                        Expanded( // Faz o botão se ajustar ao tamanho disponível
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.green,
+                                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
                               ),
+                              child: const Text("Botão 1"),
                             ),
-                            child: const Text("Botão 1"),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.grey[700],
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 8),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
+                        Expanded( // Faz o botão se ajustar ao tamanho disponível
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.grey[700],
+                                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
                               ),
+                              child: const Text("Botão 2"),
                             ),
-                            child: const Text("Botão 2"),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blueGrey,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 8),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
+                        Expanded( // Faz o botão se ajustar ao tamanho disponível
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blueGrey,
+                                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
                               ),
+                              child: const Text("Botão 3"),
                             ),
-                            child: const Text("Botão 3"),
                           ),
                         ),
                       ],
+                    ),
+
+                    // Lista rolável de contatos
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: 20,  // Número de contatos (aqui é 20, mas pode ser qualquer número)
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            leading: const CircleAvatar(
+                              backgroundColor: Colors.grey,
+                              child: Icon(Icons.person),
+                            ),
+                            title: Text("Contato ${index + 1}"),
+                            subtitle: const Text("mensagem"),
+                          
+                            onTap: () {
+                              // Ação ao clicar em um contato (pode ser aberta a conversa, por exemplo)
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
 
-            // 🔸 Coluna azul (área principal da conversa)
+            // Coluna azul (área principal da conversa)
             Expanded(
               child: Container(
                 color: Colors.blue[700],
